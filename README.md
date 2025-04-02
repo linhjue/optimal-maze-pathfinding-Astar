@@ -24,3 +24,15 @@ This project implements the A* algorithm to find the shortest path and highest p
 Run the following command in your terminal:
 ```bash
 pip install numpy matplotlib
+```
+
+### How to Run
+```bash
+python main.py
+```
+
+### Sample Results 
+
+### Lesson Learned
+- A* is an optimal search algorithm.
+- Adding dungeon element increases the complexity of the problem.
