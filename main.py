@@ -20,6 +20,39 @@ def get_cell_properties(cell_type):
     }
     return cell_properties[cell_type]
 
+
+
+def draw_with_symbols(maze):
+    size = len(maze)
+    symbol_map = {
+        0 : ".",
+        1 : "#",
+        2 : "S",
+        3 : "M",
+        4 : "G",
+        5 : "P"
+    }
+    for i in range(size):
+        row = ""
+        for j in range(size):
+            cell_type = maze[i, j]
+            symbol = symbol_map[cell_type]
+            row += symbol 
+            time_cost, score = get_cell_properties(cell_type).values()
+            if time_cost == float('inf'):
+                time_str = "∞"
+            else:
+                time_str = str(time_cost)
+            
+            if score == None:
+                score_str = "n"
+            else:
+                score_str = str(score)
+
+            row += f"({time_str}, {score_str})".ljust(12)
+        print(row)
+            
+
 def draw_maze(maze):
     cmap = mcolors.ListedColormap(["white", "black", "darkgreen", "red", "blue", "purple"])
     plt.figure(figsize=(8, 8))
@@ -27,12 +60,9 @@ def draw_maze(maze):
     plt.xticks([]), plt.yticks([])
     plt.show()
 
+
 size = int(input("Enter size maze: "))
 maze = generate_maze(size)
 draw_maze(maze)
-
-for i in range(size):
-    for j in range(size):
-        cell_type = maze[i,j]
-        time_cost, score = get_cell_properties(cell_type).values()
-        print(f"Cell: ({i}, {j}) - Type: {cell_type}, Time Cost: {time_cost}, Score: {score}")
+print("\nMaze with symbols and properties:\n")
+draw_with_symbols(maze)
