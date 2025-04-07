@@ -64,5 +64,3 @@ maze = generate_maze(size)
 draw_maze(maze)
 print("\nMaze with symbols and properties:\n")
 draw_with_symbols(maze)
-
-print("hello")
