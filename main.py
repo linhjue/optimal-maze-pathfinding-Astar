@@ -20,8 +20,6 @@ def get_cell_properties(cell_type):
     }
     return cell_properties[cell_type]
 
-
-
 def draw_with_symbols(maze):
     size = len(maze)
     symbol_map = {
@@ -66,3 +64,5 @@ maze = generate_maze(size)
 draw_maze(maze)
 print("\nMaze with symbols and properties:\n")
 draw_with_symbols(maze)
+
+print("hello")
